@@ -1,0 +1,24 @@
+/*
+Author: chankruze (chankruze@gmail.com)
+Created: Sat May 14 2022 01:01:10 GMT+0530 (India Standard Time)
+
+Copyright (c) geekofia 2022 and beyond
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: #212121;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  background: #111111;
+}
