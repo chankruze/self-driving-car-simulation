@@ -6,54 +6,62 @@ Copyright (c) geekofia 2022 and beyond
 */
 
 class Car {
-  // constructor
+  /**
+   * @param {number} x
+   * @param {number} y
+   * @param {number} width
+   * @param {number} height
+   * @memberof Car
+   * @description constructor
+   */
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
+    // widtht
     this.width = width;
+    // height
     this.height = height;
-
+    // speed
     this.speed = 0;
+    // acceralation
     this.acceleration = 0.3;
-
     // controls
     this.controls = new Controls();
   }
 
-  // update
+  /**
+   * @returns {void}
+   * @memberof Car
+   * @description update the car position
+   */
   update() {
     // forward
     if (this.controls.forward) {
-      this.y += this.acceleration;
+      this.speed += this.acceleration;
     }
 
     // backward/reverse
     if (this.controls.backward) {
-      this.y -= this.acceleration;
+      this.speed -= this.acceleration;
     }
 
-    // left
-    if (this.controls.left) {
-      console.log("left");
-    }
-
-    // right
-    if (this.controls.right) {
-      console.log("right");
-    }
+    this.y -= this.speed;
   }
 
-  // draw
+  /**
+   * @param {CanvasRenderingContext2D} ctx
+   * @returns {void}
+   * @memberof Car
+   * @description draw the car on canvas
+   */
   draw(ctx) {
-    // ctx.beginPath();
-    ctx.fillStyle = "red";
-    // x will be the center
+    ctx.fillStyle = "#D5A4FF";
+    // put x and y in the middle of the car
     ctx.fillRect(
       this.x - this.width / 2,
       this.y - this.height / 2,
       this.width,
       this.height
     );
-    // ctx.fill();
   }
 }

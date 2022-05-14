@@ -8,7 +8,6 @@ Copyright (c) geekofia 2022 and beyond
 const canvas = document.getElementById("canvas");
 // set height and width of canvas
 canvas.width = 200;
-canvas.height = window.innerHeight;
 
 // canvas context
 const ctx = canvas.getContext("2d");
@@ -22,6 +21,8 @@ animate();
 
 function animate() {
   car.update();
+  // update the canvas with new car position
+  canvas.height = window.innerHeight;
   car.draw(ctx);
   requestAnimationFrame(animate);
 }
