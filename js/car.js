@@ -23,8 +23,14 @@ class Car {
     this.height = height;
     // speed
     this.speed = 0;
+    // max forward speed
+    this.maxSpeed = 3;
+    // max reverse speed
+    this.maxReverseSpeed = -2; // - is reverse
     // acceralation
     this.acceleration = 0.3;
+    // friction
+    this.friction = 0.05;
     // controls
     this.controls = new Controls();
   }
@@ -43,6 +49,25 @@ class Car {
     // backward/reverse
     if (this.controls.backward) {
       this.speed -= this.acceleration;
+    }
+
+    // limit the speed (forward)
+    if (this.speed > this.maxSpeed) {
+      this.speed = this.maxSpeed;
+    }
+
+    // limit the speed (reverse)
+    if (this.speed < this.maxReverseSpeed) {
+      this.speed = this.maxReverseSpeed;
+    }
+
+    if (this.speed > 0) {
+      this.speed -= this.friction;
+    }
+
+    // again speed < 0 indicates reverse direction
+    if (this.speed < 0) {
+      this.speed += this.friction;
     }
 
     this.y -= this.speed;
