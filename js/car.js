@@ -82,9 +82,6 @@ class Car {
       this.speed = 0;
     }
 
-    // update the car position (y)
-    this.y -= this.speed;
-
     /**********************************************
      * update the car position (x) (left or right)
      **********************************************/
@@ -97,6 +94,12 @@ class Car {
     if (this.controls.right) {
       this.angle -= 0.03;
     }
+
+    // update the car position (x)
+    // unit circle (x, y) = (cos(angle), sin(angle)) * speed
+    this.x -= Math.sin(this.angle) * this.speed;
+    // update the car position (y)
+    this.y -= Math.cos(this.angle) * this.speed;
   }
 
   /**
