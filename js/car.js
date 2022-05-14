@@ -31,6 +31,8 @@ class Car {
     this.acceleration = 0.3;
     // friction
     this.friction = 0.05;
+    // angle
+    this.angle = 0;
     // controls
     this.controls = new Controls();
   }
@@ -88,12 +90,12 @@ class Car {
      **********************************************/
     // left
     if (this.controls.left) {
-      this.x -= 2;
+      this.angle += 0.03;
     }
 
     // right
     if (this.controls.right) {
-      this.x += 2;
+      this.angle -= 0.03;
     }
   }
 
@@ -104,14 +106,18 @@ class Car {
    * @description draw the car on canvas
    */
   draw(ctx) {
+    // save the current state of canvas
+    ctx.save();
+    // translate the canvas to car position
+    ctx.translate(this.x, this.y);
+    // rotate the canvas to car angle
+    ctx.rotate(-this.angle);
+    // draw the car
     ctx.fillStyle = "#D5A4FF";
     // put x and y in the middle of the car
-    ctx.fillRect(
-      this.x - this.width / 2,
-      this.y - this.height / 2,
-      this.width,
-      this.height
-    );
+    ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
+    // restore the canvas to previous state
+    ctx.restore();
   }
 
   /**
