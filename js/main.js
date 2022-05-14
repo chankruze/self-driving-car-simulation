@@ -12,3 +12,16 @@ canvas.height = window.innerHeight;
 
 // canvas context
 const ctx = canvas.getContext("2d");
+// car
+const width = 30;
+const height = 50;
+const car = new Car(100, window.innerHeight - height, width, height);
+car.draw(ctx);
+
+animate();
+
+function animate() {
+  car.update();
+  car.draw(ctx);
+  requestAnimationFrame(animate);
+}
