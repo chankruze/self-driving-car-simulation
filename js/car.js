@@ -88,14 +88,17 @@ class Car {
 
     // only update the x position if the car is moving
     if (this.speed !== 0) {
+      // flip the controls if it is moving in reverse direction (speed < 0)
+      const flip = this.speed < 0 ? -1 : 1;
+
       // left
       if (this.controls.left) {
-        this.angle += 0.03;
+        this.angle += 0.03 * flip;
       }
 
       // right
       if (this.controls.right) {
-        this.angle -= 0.03;
+        this.angle -= 0.03 * flip;
       }
     }
 
