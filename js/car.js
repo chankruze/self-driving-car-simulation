@@ -70,6 +70,13 @@ class Car {
       this.speed += this.friction;
     }
 
+    // fix the speed to 0 if it is less than friction
+    // this will prevent the y position from going negative due to friction
+    // fixes #1
+    if (Math.abs(this.speed) < this.friction) {
+      this.speed = 0;
+    }
+
     this.y -= this.speed;
   }
 
@@ -88,5 +95,14 @@ class Car {
       this.width,
       this.height
     );
+  }
+
+  /**
+   * @returns {void}
+   * @memberof Car
+   * @description print the car details
+   */
+  debug() {
+    console.log(this);
   }
 }
