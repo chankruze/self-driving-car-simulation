@@ -34,8 +34,6 @@ class Controls {
           this.right = true;
           break;
       }
-
-      console.table(this);
     };
 
     // add keyboard listeners to onkeyup (private)
@@ -54,8 +52,6 @@ class Controls {
           this.right = false;
           break;
       }
-
-      console.table(this);
     };
   }
 }

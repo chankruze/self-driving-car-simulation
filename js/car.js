@@ -41,6 +41,9 @@ class Car {
    * @description update the car position
    */
   update() {
+    /****************************************************
+     * update the car position (y) (forward or reverse)
+     ****************************************************/
     // forward
     if (this.controls.forward) {
       this.speed += this.acceleration;
@@ -77,7 +80,21 @@ class Car {
       this.speed = 0;
     }
 
+    // update the car position (y)
     this.y -= this.speed;
+
+    /**********************************************
+     * update the car position (x) (left or right)
+     **********************************************/
+    // left
+    if (this.controls.left) {
+      this.x -= 2;
+    }
+
+    // right
+    if (this.controls.right) {
+      this.x += 2;
+    }
   }
 
   /**
