@@ -85,14 +85,18 @@ class Car {
     /**********************************************
      * update the car position (x) (left or right)
      **********************************************/
-    // left
-    if (this.controls.left) {
-      this.angle += 0.03;
-    }
 
-    // right
-    if (this.controls.right) {
-      this.angle -= 0.03;
+    // only update the x position if the car is moving
+    if (this.speed !== 0) {
+      // left
+      if (this.controls.left) {
+        this.angle += 0.03;
+      }
+
+      // right
+      if (this.controls.right) {
+        this.angle -= 0.03;
+      }
     }
 
     // update the car position (x)
