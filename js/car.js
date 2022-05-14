@@ -40,9 +40,10 @@ class Car {
   /**
    * @returns {void}
    * @memberof Car
-   * @description update the car position
+   * @description move the car
+   * @private
    */
-  update() {
+  #move() {
     /****************************************************
      * update the car position (y) (forward or reverse)
      ****************************************************/
@@ -107,6 +108,15 @@ class Car {
     this.x -= Math.sin(this.angle) * this.speed;
     // update the car position (y)
     this.y -= Math.cos(this.angle) * this.speed;
+  }
+
+  /**
+   * @returns {void}
+   * @memberof Car
+   * @description update the car position
+   */
+  update() {
+    this.#move();
   }
 
   /**
