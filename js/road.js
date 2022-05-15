@@ -46,7 +46,7 @@ class Road {
       // get the x-coordinate of the edge of the lane
       const lenX = lerp(this.left, this.right, index / this.laneCount);
       // draw the inner edges
-      ctx.setLineDash([30, 15]);
+      ctx.setLineDash([30, 30]);
       ctx.beginPath();
       ctx.moveTo(lenX, this.top);
       ctx.lineTo(lenX, this.bottom);

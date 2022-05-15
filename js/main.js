@@ -30,7 +30,16 @@ function animate() {
   car.update();
   // update the canvas with new car position
   canvas.height = window.innerHeight;
+  // save the context
+  ctx.save();
+  // translate the context to the car position
+  ctx.translate(0, -car.y + canvas.height * 0.8);
+  // draw the road
   road.draw(ctx);
+  // draw the car
   car.draw(ctx);
+  // restore the context
+  ctx.restore();
+  // request new frame
   requestAnimationFrame(animate);
 }
