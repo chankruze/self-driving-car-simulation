@@ -133,7 +133,7 @@ class Car {
     // rotate the canvas to car angle
     ctx.rotate(-this.angle);
     // draw the car
-    ctx.fillStyle = "#D5A4FF";
+    ctx.fillStyle = "#7D007D";
     // put x and y in the middle of the car
     ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
     // restore the canvas to previous state

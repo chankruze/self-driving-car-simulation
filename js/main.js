@@ -11,10 +11,17 @@ canvas.width = 200;
 
 // canvas context
 const ctx = canvas.getContext("2d");
+// road
+const road = new Road(canvas.width / 2, canvas.width * 0.9);
 // car
-const width = 30;
-const height = 50;
-const car = new Car(100, window.innerHeight - height, width, height);
+const carWidth = 30;
+const carHeight = 50;
+const car = new Car(
+  road.getLaneCenter(1),
+  window.innerHeight - carHeight,
+  carWidth,
+  carHeight
+);
 car.draw(ctx);
 
 animate();
@@ -23,6 +30,7 @@ function animate() {
   car.update();
   // update the canvas with new car position
   canvas.height = window.innerHeight;
+  road.draw(ctx);
   car.draw(ctx);
   requestAnimationFrame(animate);
 }
